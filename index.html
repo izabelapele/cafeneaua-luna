@@ -83,7 +83,96 @@
 
     <p>Telefon: 0712 345 678</p>
 
-    <a href="tel:0712345678" class="btn">Rezervă o masă</a>
 
-</body>
+</body><!-- BUTON REZERVARE -->
+<button onclick="deschideRezervare()" class="buton-rezervare">
+    Rezervă o masă
+</button>
+
+<!-- MENIU REZERVARE -->
+<div id="meniuRezervare" style="display:none;" class="meniu-rezervare">
+
+    <button onclick="sunaCafeneaua()">
+        📞 Sună pentru rezervare
+    </button>
+
+    <button onclick="afiseazaFormular()">
+        📝 Rezervă online
+    </button>
+
+</div>
+
+<!-- FORMULAR -->
+<div id="formularRezervare" style="display:none;">
+
+    <h2>Rezervă o masă</h2>
+
+    <form action="https://formsubmit.co/EMAILUL_TAU" method="POST">
+
+        <input
+            type="text"
+            name="Nume"
+            placeholder="Numele tău"
+            required
+        >
+
+        <input
+            type="tel"
+            name="Telefon"
+            placeholder="Numărul de telefon"
+            required
+        >
+
+        <label>Data rezervării</label>
+        <input type="date" name="Data" required>
+
+        <label>Ora</label>
+        <input type="time" name="Ora" required>
+
+        <input
+            type="number"
+            name="Persoane"
+            placeholder="Număr persoane"
+            min="1"
+            required
+        >
+
+        <textarea
+            name="Observatii"
+            placeholder="Observații (opțional)"
+        ></textarea>
+
+        <button type="submit">
+            Confirmă rezervarea
+        </button>
+
+        <input
+            type="hidden"
+            name="_subject"
+            value="Rezervare nouă la cafenea"
+        >
+
+        <input
+            type="hidden"
+            name="_captcha"
+            value="false"
+        >
+
+    </form>
+</div>
+
+<script>
+function deschideRezervare() {
+    document.getElementById("meniuRezervare").style.display = "block";
+}
+
+function sunaCafeneaua() {
+    window.location.href = "tel:+40XXXXXXXXX";
+}
+
+function afiseazaFormular() {
+    document.getElementById("meniuRezervare").style.display = "none";
+    document.getElementById("formularRezervare").style.display = "block";
+}
+</script>
 </html> 
